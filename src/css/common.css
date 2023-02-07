@@ -3,6 +3,7 @@
 }
 
 body {
+  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,4 +16,30 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+
+.timer {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.value {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 24px;
 }
