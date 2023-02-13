@@ -22,8 +22,14 @@ function onSubmitForm(event) {
   event.preventDefault();
 
   let delay = Number(formRef.delay.value);
+  let step = Number(formRef.step.value);
+  let amount = Number(formRef.amount.value);
 
-  for (let position = 1; position <= Number(formRef.amount.value); position += 1) {
+  if (delay < 0 || step < 0 || amount <= 0) {
+    return  Notify.warning('Please enter correct data');
+}
+
+  for (let position = 1; position <= amount; position += 1) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -31,6 +37,6 @@ function onSubmitForm(event) {
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    delay += Number(formRef.step.value);
+    delay += step;
   }
 }
